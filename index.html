@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary SEO -->
+    <title>SnapThumb | YouTube Thumbnail Downloader - 4K & HD Free</title>
+    <meta name="description" content="Download high-quality YouTube thumbnails for free. Supports 4K, HD, and Shorts. No registration required. Multi-language support (EN, KO, JA, ES, FR).">
+    <meta name="keywords" content="youtube thumbnail downloader, download yt thumbnail, youtube shorts downloader, free youtube tools, 4k thumbnail">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="SnapThumb | Professional YouTube Thumbnail Downloader">
+    <meta property="og:description" content="Fastest way to get HD thumbnails from YouTube.">
+    <meta property="og:image" content="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg">
+
+    <!-- Schema.org Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "SnapThumb",
+      "url": "https://yourdomain.com",
+      "description": "Professional tool to download YouTube thumbnails in multiple resolutions.",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #FF0000;
+            --primary-hover: #CC0000;
+            --bg: #F9FAFB;
+            --card-bg: #FFFFFF;
+            --text-main: #111827;
+            --text-muted: #6B7280;
+            --border: #E5E7EB;
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', system-ui, sans-serif; }
+        body { background-color: var(--bg); color: var(--text-main); line-height: 1.6; }
+
+        /* Layout */
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+
+        /* Navigation */
+        nav { background: white; border-bottom: 1px solid var(--border); padding: 1rem 0; position: sticky; top: 0; z-index: 1000; }
+        .nav-inner { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-weight: 800; font-size: 1.5rem; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+
+        /* Hero */
+        .hero { padding: 5rem 1rem; text-align: center; }
+        .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; margin-bottom: 1.5rem; letter-spacing: -0.05em; }
+        .hero p { color: var(--text-muted); font-size: 1.25rem; max-width: 700px; margin: 0 auto 3rem; }
+
+        /* Input Box */
+        .search-wrapper { max-width: 800px; margin: 0 auto; background: white; padding: 10px; border-radius: 20px; box-shadow: var(--shadow); border: 1px solid var(--border); display: flex; gap: 10px; }
+        .search-wrapper input { flex: 1; border: none; padding: 1rem 1.5rem; font-size: 1rem; outline: none; border-radius: 14px; background: #F3F4F6; }
+        .search-wrapper button { background: var(--primary); color: white; border: none; padding: 0 2.5rem; border-radius: 12px; font-weight: 700; cursor: pointer; transition: 0.3s; }
+        .search-wrapper button:hover { background: var(--primary-hover); transform: scale(1.02); }
+
+        /* Ad Slots (RPM Optimized) */
+        .ad-unit { margin: 2.5rem auto; text-align: center; background: #f0f0f0; border-radius: 8px; border: 1px dashed #ccc; padding: 15px; min-height: 90px; color: #888; font-size: 0.75rem; overflow: hidden; }
+        .ad-unit::before { content: 'Advertisement'; display: block; margin-bottom: 5px; text-transform: uppercase; font-weight: bold; }
+
+        /* Results */
+        #result-area { margin: 4rem 0; display: none; }
+        .result-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .thumb-card { background: white; border-radius: 20px; overflow: hidden; border: 1px solid var(--border); transition: 0.3s; box-shadow: var(--shadow); }
+        .thumb-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
+        .card-body { padding: 1.5rem; }
+        .badge { display: inline-block; padding: 4px 12px; background: #F3F4F6; border-radius: 8px; font-size: 0.8rem; font-weight: 700; margin-bottom: 1rem; }
+        .btn-group { display: flex; gap: 10px; }
+        .btn-action { flex: 1; padding: 10px; border-radius: 10px; border: none; font-weight: 700; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; transition: 0.2s; text-decoration: none; }
+        .btn-download { background: var(--text-main); color: white; }
+        .btn-copy { background: #F3F4F6; color: var(--text-main); border: 1px solid var(--border); }
+        .btn-action:hover { opacity: 0.9; }
+
+        /* Content Section (SEO Text) */
+        .content-section { margin: 6rem 0; }
+        .content-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; margin-top: 3rem; }
+        .content-item h3 { margin-bottom: 1rem; font-size: 1.25rem; }
+        .content-item p { color: var(--text-muted); font-size: 0.95rem; }
+
+        /* Footer */
+        footer { background: white; padding: 5rem 0; border-top: 1px solid var(--border); }
+        .footer-links { margin-top: 2rem; display: flex; justify-content: center; gap: 20px; }
+        .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.85rem; cursor: pointer; }
+        .footer-links a:hover { color: var(--primary); }
+
+        /* Modal for Legal Docs */
+        .modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: none; align-items: center; justify-content: center; z-index: 2000; padding: 20px; }
+        .modal-content { background: white; padding: 2rem; border-radius: 20px; max-width: 800px; max-height: 80vh; overflow-y: auto; position: relative; }
+        .close-modal { position: absolute; top: 1rem; right: 1rem; cursor: pointer; font-size: 1.5rem; }
+
+        #toast { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%) translateY(100px); background: #111827; color: white; padding: 12px 24px; border-radius: 99px; transition: 0.3s; z-index: 3000; }
+
+        /* Responsive Fixes */
+        @media (max-width: 768px) {
+            .search-wrapper { flex-direction: column; padding: 15px; }
+            .search-wrapper button { padding: 1rem; }
+            .content-grid { gap: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-inner">
+            <a href="#" class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+                SnapThumb
+            </a>
+            <select id="langSelect" class="lang-select" style="padding: 6px; border-radius: 8px;">
+                <option value="en">English (EN)</option>
+                <option value="ko">한국어 (KO)</option>
+                <option value="ja">日本語 (JA)</option>
+                <option value="es">Español (ES)</option>
+                <option value="fr">Français (FR)</option>
+            </select>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Ad Slot: Top Banner -->
+        <div class="ad-unit">Ads: Leaderboard (728x90)</div>
+
+        <section class="hero">
+            <h1 data-i18n="hero_title">Professional YouTube Thumbnail Downloader</h1>
+            <p data-i18n="hero_subtitle">The fastest and most secure way to extract high-quality thumbnails from any YouTube video or Shorts.</p>
+            
+            <div class="search-wrapper">
+                <input type="text" id="videoUrl" placeholder="Paste YouTube link here..." data-i18n-placeholder="input_ph">
+                <button onclick="processRequest()" data-i18n="btn_get">Get Thumbnails</button>
+            </div>
+        </section>
+
+        <!-- Result Section -->
+        <section id="result-area">
+            <!-- Ad Slot: In-Result -->
+            <div class="ad-unit">Ads: In-Content (Rectangle)</div>
+            <div class="result-grid" id="resultGrid"></div>
+        </section>
+
+        <!-- Content Section (SEO & Keywords) -->
+        <section class="content-section">
+            <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+                <h2 data-i18n="why_title">Why Use SnapThumb?</h2>
+                <p style="color:var(--text-muted)" data-i18n="why_desc">Our tool provides the most direct access to YouTube's original thumbnail storage, ensuring you get the highest resolution possible every time.</p>
+            </div>
+            
+            <div class="content-grid">
+                <div class="content-item">
+                    <h3 data-i18n="s1_t">High-Resolution Support</h3>
+                    <p data-i18n="s1_d">Access 1280x720 (Maxres), 640x480 (SD), and HQ resolutions with one click.</p>
+                </div>
+                <div class="content-item">
+                    <h3 data-i18n="s2_t">Secure & Anonymous</h3>
+                    <p data-i18n="s2_d">We don't collect URLs or user data. No registration, no login, 100% private.</p>
+                </div>
+                <div class="content-item">
+                    <h3 data-i18n="s3_t">Free for Everyone</h3>
+                    <p data-i18n="s3_d">Designed for creators and researchers who need fast access to visual assets.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ad Slot: Bottom Banner -->
+        <div class="ad-unit">Ads: Bottom (728x90)</div>
+    </div>
+
+    <footer>
+        <div class="container" style="text-align: center;">
+            <p data-i18n="footer_copy">© 2024 SnapThumb. Professional Creator Tools.</p>
+            <div class="footer-links">
+                <a onclick="showLegal('privacy')" data-i18n="link_privacy">Privacy Policy</a>
+                <a onclick="showLegal('terms')" data-i18n="link_terms">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Legal Modal -->
+    <div id="legalModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeLegal()">&times;</span>
+            <div id="legalContent"></div>
+        </div>
+    </div>
+
+    <div id="toast"></div>
+
+    <script>
+        /* 5-Language Translation Asset */
+        const i18n = {
+            en: {
+                hero_title: "Professional YouTube Thumbnail Downloader",
+                hero_subtitle: "Extract high-quality thumbnails from any YouTube video or Shorts instantly.",
+                input_ph: "Paste YouTube link here...",
+                btn_get: "Get Thumbnails",
+                why_title: "Why Use SnapThumb?",
+                why_desc: "We provide direct access to YouTube's original thumbnail storage for the highest possible resolution.",
+                s1_t: "High-Resolution Support", s1_d: "Access 1280x720 (Maxres), 640x480 (SD), and HQ resolutions.",
+                s2_t: "Secure & Anonymous", s2_d: "No registration, no tracking, 100% private access.",
+                s3_t: "Free Forever", s3_d: "Designed for creators and researchers as a completely free tool.",
+                footer_copy: "© 2024 SnapThumb. Professional Creator Tools.",
+                link_privacy: "Privacy Policy", link_terms: "Terms of Service",
+                btn_download: "Download", btn_copy: "Copy URL",
+                copied: "URL copied to clipboard!",
+                res_max: "Ultra HD (1280x720)", res_sd: "Standard (640x480)", res_hq: "High Quality (480x360)", res_mq: "Medium (320x180)",
+                invalid: "Please enter a valid YouTube URL."
+            },
+            ko: {
+                hero_title: "전문가용 유튜브 썸네일 다운로더",
+                hero_subtitle: "모든 유튜브 영상 및 쇼츠의 고화질 썸네일을 즉시 추출하세요.",
+                input_ph: "유튜브 주소를 입력하세요...",
+                btn_get: "썸네일 가져오기",
+                why_title: "왜 SnapThumb인가요?",
+                why_desc: "유튜브 원본 서버에 직접 연결하여 가장 선명한 화질을 보장합니다.",
+                s1_t: "초고화질 지원", s1_d: "1280x720(맥스), 640x480(SD) 등 모든 해상도 지원.",
+                s2_t: "보안 및 익명성", s2_d: "회원가입과 추적 없음, 100% 익명성 보장.",
+                s3_t: "평생 무료", s3_d: "크리에이터와 연구자를 위해 무료로 제공되는 전문 도구.",
+                footer_copy: "© 2024 SnapThumb. 크리에이터를 위한 전문 도구.",
+                link_privacy: "개인정보처리방침", link_terms: "이용약관",
+                btn_download: "다운로드", btn_copy: "주소 복사",
+                copied: "주소가 클립보드에 복사되었습니다!",
+                res_max: "최고 화질 (1280x720)", res_sd: "표준 화질 (640x480)", res_hq: "고화질 (480x360)", res_mq: "중간 화질 (320x180)",
+                invalid: "올바른 유튜브 주소를 입력해 주세요."
+            },
+            ja: {
+                hero_title: "YouTubeサムネイルダウンローダー",
+                hero_subtitle: "動画やShortsから高品質なサムネイルを即座に抽出します。",
+                input_ph: "YouTubeのリンクを貼り付けてください...",
+                btn_get: "サムネイル取得",
+                why_title: "SnapThumbを選ぶ理由",
+                why_desc: "YouTubeのオリジナルサーバーから直接、最高解像度の画像を提供します。",
+                s1_t: "高解像度対応", s1_d: "1280x720(Maxres)からHQまで、すべての解像度に対応。",
+                s2_t: "安全・匿名", s2_d: "登録不要、追跡なし。完全にプライベートです。",
+                s3_t: "永久無料", s3_d: "クリエイターや研究者のために設計された完全無料のツール。",
+                footer_copy: "© 2024 SnapThumb. プロフェッショナル・ツール。",
+                link_privacy: "プライバシーポリシー", link_terms: "利用規約",
+                btn_download: "保存", btn_copy: "URLコピー",
+                copied: "コピーしました！",
+                res_max: "最高画質 (1280x720)", res_sd: "標準画質 (640x480)", res_hq: "高画質 (480x360)", res_mq: "中画質 (320x180)",
+                invalid: "有効なYouTube URLを入力してください。"
+            },
+            es: {
+                hero_title: "Descargador de Miniaturas de YouTube",
+                hero_subtitle: "Extrae miniaturas en alta calidad de cualquier video de YouTube o Shorts al instante.",
+                input_ph: "Pega el enlace de YouTube aquí...",
+                btn_get: "Obtener Miniaturas",
+                why_title: "¿Por qué SnapThumb?",
+                why_desc: "Acceso directo a las miniaturas originales para la máxima resolución posible.",
+                s1_t: "Alta Resolución", s1_d: "Soporte para 1280x720 (Maxres), 640x480 (SD) y más.",
+                s2_t: "Seguro y Privado", s2_d: "Sin registros ni rastreo. 100% anónimo.",
+                s3_t: "Gratis Siempre", s3_d: "Diseñado para creadores de contenido de forma gratuita.",
+                footer_copy: "© 2024 SnapThumb. Herramientas para Creadores.",
+                link_privacy: "Privacidad", link_terms: "Términos",
+                btn_download: "Bajar", btn_copy: "Copiar Link",
+                copied: "¡Copiado al portapapeles!",
+                res_max: "Ultra HD (1280x720)", res_sd: "Estándar (640x480)", res_hq: "Alta Calidad (480x360)", res_mq: "Media (320x180)",
+                invalid: "Ingrese una URL válida de YouTube."
+            },
+            fr: {
+                hero_title: "Téléchargeur de Miniatures YouTube",
+                hero_subtitle: "Téléchargez des miniatures HD à partir de n'importe quelle vidéo YouTube ou Shorts.",
+                input_ph: "Collez le lien YouTube ici...",
+                btn_get: "Obtenir les Images",
+                why_title: "Pourquoi SnapThumb ?",
+                why_desc: "Nous offrons un accès direct aux serveurs originaux de YouTube.",
+                s1_t: "Haute Résolution", s1_d: "Prend en charge 1280x720, 640x480 et HQ.",
+                s2_t: "Sûr et Privé", s2_d: "Aucun enregistrement requis, accès 100% anonyme.",
+                s3_t: "Entièrement Gratuit", s3_d: "Outil gratuit pour les créateurs du monde entier.",
+                footer_copy: "© 2024 SnapThumb. Outils Professionnels.",
+                link_privacy: "Confidentialité", link_terms: "Conditions",
+                btn_download: "Télécharger", btn_copy: "Copier le Lien",
+                copied: "Copié dans le presse-papiers !",
+                res_max: "Ultra HD (1280x720)", res_sd: "Standard (640x480)", res_hq: "Haute Qualité (480x360)", res_mq: "Moyenne (320x180)",
+                invalid: "Veuillez entrer une URL YouTube valide."
+            }
+        };
+
+        let currentLang = 'en';
+
+        function updateLang(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang;
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                el.textContent = i18n[lang][key];
+            });
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                el.placeholder = i18n[lang][key];
+            });
+            localStorage.setItem('snapthumb_lang', lang);
+        }
+
+        const langSelect = document.getElementById('langSelect');
+        langSelect.addEventListener('change', (e) => updateLang(e.target.value));
+        const savedLang = localStorage.getItem('snapthumb_lang') || (i18n[navigator.language.slice(0,2)] ? navigator.language.slice(0,2) : 'en');
+        langSelect.value = savedLang;
+        updateLang(savedLang);
+
+        /* Logic */
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            toast.textContent = msg;
+            toast.style.transform = 'translateX(-50%) translateY(0)';
+            setTimeout(() => toast.style.transform = 'translateX(-50%) translateY(100px)', 3000);
+        }
+
+        function extractId(input) {
+            const regex = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/|youtube\.com\/shorts\/)([^"&?\/\s]{11})/;
+            const match = input.match(regex);
+            return (match && match[1]) || (/^[a-zA-Z0-9_-]{11}$/.test(input) ? input : null);
+        }
+
+        async function downloadImage(url, filename) {
+            try {
+                const response = await fetch(url);
+                const blob = await response.blob();
+                const blobUrl = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = blobUrl;
+                a.download = filename;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                window.URL.revokeObjectURL(blobUrl);
+            } catch (e) {
+                window.open(url, '_blank');
+                showToast(currentLang === 'ko' ? "새 탭에서 열렸습니다. 우클릭 저장해 주세요." : "Opened in new tab. Save manually.");
+            }
+        }
+
+        function copyUrl(text) {
+            const el = document.createElement('textarea');
+            el.value = text;
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+            showToast(i18n[currentLang].copied);
+        }
+
+        function processRequest() {
+            const id = extractId(document.getElementById('videoUrl').value.trim());
+            if (!id) return showToast(i18n[currentLang].invalid);
+            render(id);
+        }
+
+        function render(id) {
+            const grid = document.getElementById('resultGrid');
+            const area = document.getElementById('result-area');
+            const labels = i18n[currentLang];
+            const types = [
+                { key: 'maxresdefault', label: labels.res_max },
+                { key: 'sddefault', label: labels.res_sd },
+                { key: 'hqdefault', label: labels.res_hq },
+                { key: 'mqdefault', label: labels.res_mq }
+            ];
+
+            grid.innerHTML = '';
+            types.forEach(type => {
+                const url = `https://img.youtube.com/vi/${id}/${type.key}.jpg`;
+                const card = document.createElement('div');
+                card.className = 'thumb-card';
+                card.innerHTML = `
+                    <img src="${url}" alt="${type.label}" onerror="this.parentElement.style.display='none'">
+                    <div class="card-body">
+                        <span class="badge">${type.label}</span>
+                        <div class="btn-group">
+                            <button class="btn-action btn-download" onclick="downloadImage('${url}', 'yt_${id}_${type.key}.jpg')">
+                                ${labels.btn_download}
+                            </button>
+                            <button class="btn-action btn-copy" onclick="copyUrl('${url}')">
+                                ${labels.btn_copy}
+                            </button>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+            area.style.display = 'block';
+            area.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        /* Legal Docs Generation */
+        function showLegal(type) {
+            const content = document.getElementById('legalContent');
+            if (type === 'privacy') {
+                content.innerHTML = `
+                    <h2>Privacy Policy</h2>
+                    <p>Last updated: 2024.01.29</p>
+                    <p>At SnapThumb, we prioritize your privacy. This tool is a client-side application that processes requests without storing any personal data.</p>
+                    <ul>
+                        <li><b>Data Collection:</b> We do not collect names, email addresses, or YouTube URLs.</li>
+                        <li><b>Cookies:</b> We only use local storage to remember your language preference.</li>
+                        <li><b>Third-party:</b> Google AdSense may use cookies to serve personalized ads.</li>
+                    </ul>
+                `;
+            } else {
+                content.innerHTML = `
+                    <h2>Terms of Service</h2>
+                    <p>By using SnapThumb, you agree to the following:</p>
+                    <ul>
+                        <li><b>Usage:</b> This tool is for personal and educational use.</li>
+                        <li><b>Rights:</b> All thumbnail images are the property of their respective creators and YouTube. You are responsible for any copyright violations.</li>
+                        <li><b>No Warranty:</b> The tool is provided "as is" without any guarantees.</li>
+                    </ul>
+                `;
+            }
+            document.getElementById('legalModal').style.display = 'flex';
+        }
+
+        function closeLegal() { document.getElementById('legalModal').style.display = 'none'; }
+        window.onclick = (e) => { if(e.target.className === 'modal') closeLegal(); }
+
+        document.getElementById('videoUrl').addEventListener('keypress', (e) => e.key === 'Enter' && processRequest());
+    </script>
+</body>
+</html>
